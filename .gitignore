@@ -240,8 +240,10 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
-/GettingAndCleaningData/Week1/survey.csv
-/GettingAndCleaningData/Week1/restaurant_data.xml
-/GettingAndCleaningData/Week1/naturalgasaquisition.xlsx
-/GettingAndCleaningData/Week1/community_survey.csv
-*.Rhistory
+
+# R Project
+.Rhistory
+.httr-oauth
+*.csv
+*.xml
+*.xlsx
