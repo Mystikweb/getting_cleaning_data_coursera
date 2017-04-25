@@ -12,6 +12,7 @@ edu_stats <- read.csv("edu_download.csv")
 
 merged_stats <- merge(edu_stats, gdp_stats)
 
-ordered_stats <- merged_stats[order(merged_stats$Ranking, decreasing = TRUE),]
+high_income_oced <- merged_stats[merged_stats$Income.Group == "High income: OECD",]
+high_income_non_oced <- merged_stats[merged_stats$Income.Group == "High income: nonOECD",]
 
-final_country <- ordered_stats[13, ]$CountryDescription
+final_result <- c(mean(high_income_oced$Ranking), mean(high_income_non_oced$Ranking))

@@ -12,6 +12,8 @@ edu_stats <- read.csv("edu_download.csv")
 
 merged_stats <- merge(edu_stats, gdp_stats)
 
-ordered_stats <- merged_stats[order(merged_stats$Ranking, decreasing = TRUE),]
+quantile_groups <- quantile(merged_stats$Ranking, probs = seq(0, 1, 0.2))
 
-final_country <- ordered_stats[13, ]$CountryDescription
+merged_stats$SplitGroup <- cut(merged_stats$Ranking, breaks = quantile_groups)
+
+table_result <- table(merged_stats$Income.Group, merged_stats$SplitGroup)
